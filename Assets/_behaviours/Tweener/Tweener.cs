@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Tweener : MonoBehaviour 
 {
-    public delegate void TweenBehaviourEventHandler(Tweener tweenBehaviour);
-    public event TweenBehaviourEventHandler TweeningOn;
-    public event TweenBehaviourEventHandler CompletedOn;
-    public event TweenBehaviourEventHandler TweeningOff;
-    public event TweenBehaviourEventHandler CompletedOff;
+    public delegate void TweenerEventHandler(Tweener tweenBehaviour);
+    public event TweenerEventHandler TweeningOn;
+    public event TweenerEventHandler CompletedOn;
+    public event TweenerEventHandler TweeningOff;
+    public event TweenerEventHandler CompletedOff;
 
     [SerializeField]
     private bool m_enableColliders;
