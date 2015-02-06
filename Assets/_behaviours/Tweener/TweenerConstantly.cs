@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Bonobo
 {
-	public class TweenerPerma : MonoBehaviour 
+	public class TweenerConstantly : MonoBehaviour 
 	{
 	    Tweener m_tweener;
 
