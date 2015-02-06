@@ -43,5 +43,10 @@ namespace Bonobo
 		{
 			return i.ToString().Replace("-", "").Length;
 		}
+
+		public static int GetNegative(int i)
+		{
+			return -1 * Mathf.Abs(i);
+		}
 	}
 }
