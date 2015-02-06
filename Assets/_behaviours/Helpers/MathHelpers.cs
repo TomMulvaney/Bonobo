@@ -48,5 +48,15 @@ namespace Bonobo
 		{
 			return -1 * Mathf.Abs(i);
 		}
+
+        public static bool GreaterThan(float f1, float f2)
+        {
+            return f1 > f2 && !Mathf.Approximately(f1, f2);
+        }
+        
+        public static bool LessThan(float f1, float f2)
+        {
+            return f1 < f2 && !Mathf.Approximately(f1, f2);
+        }
 	}
 }
