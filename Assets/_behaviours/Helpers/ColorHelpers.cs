@@ -85,5 +85,32 @@ namespace Bonobo
                 break;
             }
 		}
+
+        public static Color HexToColor(string hex)
+        {
+            try
+            {
+                hex = StringHelpers.OnlyAlphaNum(hex);
+                
+                string[] hexValues = new string[3];
+                hexValues[0] = hex.Substring(0, 2);
+                hexValues[1] = hex.Substring(2, 2);
+                hexValues[2] = hex.Substring(4, 2);
+                
+                float[] floatValues = new float[3];
+                for(int i = 0; i < floatValues.Length; ++i)
+                {
+                    int decimalValue = System.Convert.ToInt32(hexValues[i], 16);
+                    floatValues[i] = (float)decimalValue / 255f;
+                    Mathf.Clamp01(floatValues[i]); //Defensive
+                }
+                
+                return new Color(floatValues[0], floatValues[1], floatValues[2]);
+            }
+            catch
+            {
+                throw new Exception(string.Format("Could not convert {0} to color", hex));
+            }
+        }
 	}
 }
