@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Bonobo;
 
-public class ColorTest : MonoBehaviour {
+public class ColorTest : MonoBehaviour
+{
+    [SerializeField]
+    private ColorWidgets m_colorWidgets;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void Start () 
+	{
+        m_colorWidgets.SetBonoboColor("hello");
 	}
 }

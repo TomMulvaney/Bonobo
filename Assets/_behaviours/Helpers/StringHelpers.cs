@@ -36,6 +36,17 @@ public class StringHelpers
 		return sb.ToString();
 	}
 
+	public static string FirstLetterToUpper(string str)
+	{
+		if (str == null)
+			return null;
+		
+		if (str.Length > 1)
+			return char.ToUpper(str[0]) + str.Substring(1);
+		
+		return str.ToUpper();
+	}
+
     static string[] ones = new string[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
     static string[] teens = new string[] { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
     static string[] tens = new string[] { "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
