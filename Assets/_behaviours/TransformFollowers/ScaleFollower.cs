@@ -8,13 +8,13 @@ namespace Bonobo
 		[SerializeField]
 		private Transform m_target;
 		[SerializeField]
-		private float m_scalar = 1;
+		private float m_multiplier = 1;
 		
 		void Update () 
 		{
 			if (m_target != null)
 			{
-				transform.localScale = m_target.transform.localScale * m_scalar;
+				transform.localScale = m_target.transform.localScale * m_multiplier;
 			}
 		}
 		
