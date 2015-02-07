@@ -2,24 +2,35 @@
 using System.Collections;
 using System;
 
-public class TriggerDestroy : MonoBehaviour
+namespace Bonobo
 {
-    [SerializeField]
-    private string[] m_excludedTags;
-
-	void OnTriggerEnter (Collider other)
+    public class TriggerDestroy : MonoBehaviour
     {
-	    if (Array.IndexOf(m_excludedTags, other.tag) == -1)
-        {
-            Destroy(other.gameObject);
-        }
-	}
+        public delegate void TriggerDestroyEventHandler(TriggerDestroy destroyBehaviour, GameObject destructable);
+        public event TriggerDestroyEventHandler Destroying;
 
-    void OnTriggerEnter2D (Collider2D other)
-    {
-        if (Array.IndexOf(m_excludedTags, other.tag) == -1)
+        [SerializeField]
+        private string[] m_excludedTags;
+
+    	void OnTriggerEnter (Collider other)
         {
-            Destroy(other.gameObject);
+    	    if (Array.IndexOf(m_excludedTags, other.tag) == -1)
+            {
+                Destroy(other.gameObject);
+            }
+    	}
+
+        void OnTriggerEnter2D (Collider2D other)
+        {
+            if (Array.IndexOf(m_excludedTags, other.tag) == -1)
+            {
+                if(Destroying != null)
+                {
+                    Destroying(this, other.gameObject);
+                }
+
+                Destroy(other.gameObject);
+            }
         }
     }
 }
