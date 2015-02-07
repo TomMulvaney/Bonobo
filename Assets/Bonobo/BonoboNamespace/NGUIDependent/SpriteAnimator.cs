@@ -22,7 +22,7 @@ namespace Bonobo
             [SerializeField]
             public int m_numFrames;
             [SerializeField]
-            public int m_startFrame = 1;
+            public int m_startFrame;
             [SerializeField]
             public bool m_toLetter;
             [SerializeField]
