@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Bonobo
 {
@@ -39,7 +40,7 @@ namespace Bonobo
             {
                 SetBonoboColor(ColorHelpers.GetBonoboColor(colorName));
             }
-            catch(BonoboColorNotFoundException ex)
+            catch(Exception ex)
             {
                 Debug.Log(ex.Message);
             }

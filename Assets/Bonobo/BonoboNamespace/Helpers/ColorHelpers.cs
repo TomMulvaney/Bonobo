@@ -4,11 +4,6 @@ using System;
 
 namespace Bonobo
 {
-    public class BonoboColorNotFoundException : Exception
-    {
-        public BonoboColorNotFoundException(string message) : base(message){}
-    }
-
 	public enum BonoboColor
 	{
 		Red,
@@ -32,7 +27,7 @@ namespace Bonobo
             }
             catch
             {
-                throw new BonoboColorNotFoundException(colorName + " is not recognised BonoboColor");
+                throw new Exception(colorName + " is not recognised BonoboColor");
             }
         }
 
@@ -42,7 +37,7 @@ namespace Bonobo
 			{
 				return GetColor(GetBonoboColor(colorName));
 			}
-			catch(BonoboColorNotFoundException ex)
+            catch(Exception ex)
 			{
 				Debug.LogError(ex.Message);
 				return Color.white;		
